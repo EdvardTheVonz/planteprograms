@@ -1,0 +1,78 @@
+import random
+import time
+
+# Title
+print("It's time for......")
+intro = [" _ ", "|R|", "|U|", "|S|", "|S|", "|I|", "|A|", "|N|", "| |", "|R|", "|O|", "|U|", "|L|", "|E|", "|T|", "|T|", "|E|", " ‾ "]
+for x in intro:
+  print x
+  time.sleep(0.2)
+time.sleep(0.4)
+
+# The old way to do the intro:
+"""
+time.sleep(0.1)
+print("R")
+time.sleep(0.1)
+print("U")
+time.sleep(0.1)
+print("S")
+time.sleep(0.1)
+print("S")
+time.sleep(0.1)
+print("I")
+time.sleep(0.1)
+print("A")
+time.sleep(0.1)
+print("N")
+time.sleep(0.1)
+print(" ")
+time.sleep(0.1)
+print("R")
+time.sleep(0.1)
+print("O")
+time.sleep(0.1)
+print("U")
+time.sleep(0.1)
+print("L")
+time.sleep(0.1)
+print("E")
+time.sleep(0.1)
+print("T")
+time sleep(0.1)
+print("T")
+time.sleep(0.1)
+print("E")
+"""
+
+# The mechanics behind the game
+loop = 1
+score = 0
+svar2 = input("Press 'y' To start: ")
+if svar2 == "y":
+  while loop == 1:
+    time.sleep(1)
+    verdi = random.randint(1, 6)
+    if verdi == 5:
+      print("BANG! You're dead.")
+      loop = 0
+      time.sleep(0.3)
+      score = 0 # Resets the current score, remove if you want to see the score you got before you died
+    
+      print("Your score was reset because you died. You got" + "(" + str(score) + ")" + " points!")
+    else:
+      print("Click! You're still alive")
+      score += 1
+      # I changed it to where every time you live it tells you the score, in an earlier version it did not.
+      print("You have: " + "(" + str(score) + ")" + " points!")
+      time.sleep(0.3)
+      loopsprsml = input(str("Would you like to try again? (y/n)"))
+      if loopsprsml == "n":
+          print("You finnished with: " + "(" + str(score) + ")" + " points!")
+          exit()
+      else:
+        continue
+  else:
+    exit()
+else:
+  exit()
