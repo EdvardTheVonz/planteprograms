@@ -1,0 +1,74 @@
+import random
+import time
+
+# Tittel
+print("Det er tid for...")
+intro = [" _ ", "|R|", "|U|", "|S|", "|S|", "|I|", "|S|", "|K|", "| |", "|R|", "|U|", "|L|", "|E|", "|T|", "|T|", " ‾ "]
+for x in intro:
+  print x
+  time.sleep(0.2)
+time.sleep(0.4)
+
+# Gamle måten å gjøre introen:
+"""
+time.sleep(0.1)
+print("R")
+time.sleep(0.1)
+print("U")
+time.sleep(0.1)
+print("S")
+time.sleep(0.1)
+print("S")
+time.sleep(0.1)
+print("I")
+time.sleep(0.1)
+print("S")
+time.sleep(0.1)
+print("K")
+time.sleep(0.1)
+print(" ")
+time.sleep(0.1)
+print("R")
+time.sleep(0.1)
+print("U")
+time.sleep(0.1)
+print("L")
+time.sleep(0.1)
+print("E")
+time.sleep(0.1)
+print("T")
+time.sleep(0.1)
+print("T")
+"""
+
+# Mekanikken bak spillet
+loop = 1
+score = 0
+svar2 = input("Trykk 'y' for å starte: ")
+if svar2 == "y":
+  while loop == 1:
+    time.sleep(1)
+    verdi = random.randint(1, 6)
+    if verdi == 5:
+      print("Pang! Du er død.")
+      loop = 0
+      time.sleep(0.3)
+      score = 0 # tilbakestiller scoren når du dør, Kan fjernes hvis du vi at det skal stå hvor mange poengdu fikk før du døde.
+    
+      print("Din poengsum ble tilbakestilt når du døde! Du fikk: " + "(" + str(score) + ")" + " poeng!")
+    else:
+      print("Klikk! Du lever.")
+      score += 1
+      # Jeg endret det så det står poengsum hver gang du lever
+      print("du har: " + "(" + str(score) + ")" + " poeng!")
+      time.sleep(0.3)
+      loopsprsml = input(str("Vil du prøve igjen? (y/n)"))
+      if loopsprsml == "n":
+          print("Du fikk: " + "(" + str(score) + ")" + " poeng!")
+          exit()
+      else:
+        continue
+  else:
+    exit()
+else:
+  exit()
